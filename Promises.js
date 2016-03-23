@@ -11,7 +11,12 @@ var getPI = function() {
       setTimeout(function() {
          pi=(Math.PI).toFixed(2);
          console.log('Pi is '+ (Math.PI).toFixed(2));
-         resolve({data: '123'});
+         if(pi==3.13){
+         resolve({data: pi});
+       }
+       else {
+         reject(pi=3.123,console.log(pi));
+       }
       }, 2000);
    });
    return promise;
@@ -21,18 +26,18 @@ var getPI = function() {
 var piSquared = function() {
    var promise = new Promise(function(resolve, reject){
       setTimeout(function() {
-         console.log('area is' + pi*pi);
-         resolve({newData: pi.data + ' some more data'});
+         console.log('squared pi is ' + pi*pi);
+         resolve({newData: pi.data});
       }, 2000);
    });
    return promise;
 };
 
-var thirdMethod = function(someStuff) {
+var picubed = function() {
    var promise = new Promise(function(resolve, reject){
       setTimeout(function() {
-         console.log('third method completed');
-         resolve({result: someStuff.newData});
+         console.log('pi cubed is ' + Math.pow(pi,3).toFixed(2));
+         resolve({result: Math.pow(pi,3)});
       }, 3000);
    });
    return promise;
@@ -41,4 +46,4 @@ var thirdMethod = function(someStuff) {
 //Chaining the promises
 getPI()
    .then(piSquared)
-   .then(thirdMethod);
+   .then(picubed);
