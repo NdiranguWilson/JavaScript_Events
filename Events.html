@@ -1,0 +1,97 @@
+<!---
+/**
+ * Cytonn Technologies
+ * @author Ndirangu Wilson <wndirangu@cytonn.com>
+ */
+
+--->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Javascript Events</title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="./css/styles.css">
+</head>
+
+<body>
+  <div class="row">
+
+
+    <div class="col-md-6">
+      <p class="exp">
+        Click the button (onclick) to piSquared some Text
+      </p>
+      <button class="myButton" onclick="displayFunction()"> piSquared text</button>
+      <p class="exp">
+        Type in the text box in CAPLOCKS (onkeyup)
+      </p>
+      Ascii:
+      <input class="form-control" type="text" id="keyup" onkeyup="asciiFunction()">
+      <p class="exp">
+        Copy some text (oncopy)piSquared some Text
+      </p>
+      <input type="text" class="form-control" oncopy="copyFunction()" value="Try to copy this text">
+      <p class="exp">
+        Submit (onsubmit) to alert the value submitted
+      </p>
+      <form action="#" onsubmit="submitFunction()">
+        Enter Text:
+        <input class="form-control" type="text" name="fname">
+        <input class="myButton" type="submit" value="Submit">
+      </form>
+    </div>
+    <div class="col-md-6">
+      <p id="paragraph">
+
+      </p>
+
+      <p id="copy">
+
+      </p>
+    </div>
+  </div>
+  <script type="text/javascript">
+    /**
+     * this function displays the text on a button click
+     * @return {[none]} [the function simply does something]
+     */
+    function displayFunction() {
+      document.getElementById("paragraph").innerHTML = "HTML allows event handler attributes, with JavaScript code, to be added to HTML elements";
+
+    }
+    /**
+     * This function changes the to lowercase the character given on key up
+     * @return {[none]}
+     */
+    function asciiFunction() {
+      var k = document.getElementById("keyup");
+      k.value = k.value.toLowerCase();
+
+    }
+    /**
+     * this function notifies on copying the text
+     * @return {[none]}
+     */
+    function copyFunction() {
+
+      document.getElementById("copy").innerHTML = "You copied text!"
+    }
+    /**
+     * this function displays an alert on submiting a form
+     * @return {[none]} 
+     */
+    function submitFunction() {
+
+      alert("Are you sure you want to submit");
+    }
+  </script>
+
+
+
+
+</body>
+
+</html>
